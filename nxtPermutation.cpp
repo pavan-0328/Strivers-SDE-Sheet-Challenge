@@ -15,14 +15,14 @@ vector<int> nextPermutation(vector<int> &permutation, int n)
     //  Write your code here.
     vector<int> arr = permutation;
     for(int i=n-1;i>0;i--){
-        if(arr[i] > arr[i-1]){
-            int nxtbig_indx = find_nxtbig(arr, i-1);
-            swap(arr[nxtbig_indx],arr[i-1]);
-            reverse(arr.begin() + i,arr.end());
+        if(arr[i] > arr[i-1]){ //if current element is > its prev element 
+            int nxtbig_indx = find_nxtbig(arr, i-1); // find the biggest element that is just grater that the prev element
+            swap(arr[nxtbig_indx],arr[i-1]);//swap those two elements
+            reverse(arr.begin() + i,arr.end());//reverse the array from current indx to till the end
             return arr;
         }
     }
-    sort(arr.begin(),arr.end());
+    sort(arr.begin(),arr.end()); // if the array is strictly decricing from left to right sort the array in increasing order form left to right
     return arr;
 
 }
